@@ -6,11 +6,15 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	SXPoint2D p;
+	SXPoint3D p,p1;
 	p.x=2.3;
 	p.y=3.1;
-	SXPoint2D p1=5.0f+p;
-	cout<<p1.x<<"  "<<p1.y<<endl;
+	p.z=2;
+	p1.x=1.1;
+	p1.y=2.6;
+	p1.z=5;
+	SXPoint3D p2=p+p1;
+	cout<<p2.x<<"  "<<p2.y<<endl;
 	return 0;
 }
 
