@@ -13,8 +13,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	p1.x=1.1;
 	p1.y=2.6;
 	p1.z=5;
-	SXPoint3D p2=p+p1;
-	cout<<p2.x<<"  "<<p2.y<<endl;
+	SXPoint3D p2=p+p1+10;
+	cout<<p2.x<<"  "<<p2.y<<" "<<(p1==p2)<<endl;
 	return 0;
 }
 
