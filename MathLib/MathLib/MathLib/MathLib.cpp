@@ -150,6 +150,46 @@ SXBasePoint SXBasePoint::operator-( const SXBasePoint& PointObj )
 	return PointTemp;
 }
 
+float SXBasePoint::Length()
+{
+	float fSum=0;
+	for(int i=0;i<m_PointList.size();i++)
+	{
+		fSum+=m_PointList[i]*m_PointList[i];
+	}
+	return sqrtf(fSum);
+}
+
+SXBasePoint& SXBasePoint::Normalize()
+{
+	int iSize=Length();
+	for(int i=0;i<m_PointList.size();i++)
+	{
+		m_PointList[i]/=iSize;
+	}
+	return *this;
+}
+
+float SXBasePoint::Dot( const SXBasePoint& PointObj )
+{
+	float fDot=0;
+	for(int i=0;i<m_PointList.size();i++)
+	{
+		fDot+=m_PointList[i]*PointObj.m_PointList[i];
+	}
+	return fDot;
+}
+
+SXBasePoint SXBasePoint::Cross( const SXBasePoint& PointObj )
+{
+	assert(m_PointList.size()==3);
+	SXBasePoint PointTemp(3);
+	PointTemp.m_PointList[0]=m_PointList[1]*PointObj.m_PointList[2]-PointObj.m_PointList[1]*m_PointList[2];
+	PointTemp.m_PointList[1]=m_PointList[2]*PointObj.m_PointList[0]-PointObj.m_PointList[2]*m_PointList[0];
+	PointTemp.m_PointList[2]=m_PointList[0]*PointObj.m_PointList[1]-PointObj.m_PointList[0]*m_PointList[1];
+	return PointTemp;
+}
+
 
 SXBasePoint operator /(float fValue,const SXBasePoint& PointObj)
 {

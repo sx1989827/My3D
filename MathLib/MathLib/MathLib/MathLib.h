@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include <cassert>
 using namespace std;
 #define PRECISION 0.000001
 bool SXMathFloatIsEqual(float fx,float fy);
@@ -30,6 +31,10 @@ public:
 	SXBasePoint operator -(const SXBasePoint& PointObj);
 	bool operator ==(const SXBasePoint& PointObj);
 	bool operator !=(const SXBasePoint& PointObj);
+	float Length();
+	SXBasePoint& Normalize();
+	float Dot(const SXBasePoint& PointObj);
+	SXBasePoint Cross(const SXBasePoint& PointObj);
 	vector<float> m_PointList;
 };
 
