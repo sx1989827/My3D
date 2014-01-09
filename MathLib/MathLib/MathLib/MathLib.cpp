@@ -236,3 +236,283 @@ bool SXMathFloatIsEqual( float fx,float fy )
 	return fabs(fx-fy)<=PRECISION;
 }
 
+
+SXMatrix3 SXMatrix3::operator+( const SXMatrix3& obj )
+{
+	SXMatrix3 Mat;
+	for(int row=0;row<3;row++)
+	{
+		for(int col=0;col<3;col++)
+		{
+			Mat.m_Data[row][col]=m_Data[row][col]+obj.m_Data[row][col];
+		}
+	}
+	return Mat;
+}
+
+SXMatrix3 SXMatrix3::operator-( const SXMatrix3& obj )
+{
+	SXMatrix3 Mat;
+	for(int row=0;row<3;row++)
+	{
+		for(int col=0;col<3;col++)
+		{
+			Mat.m_Data[row][col]=m_Data[row][col]-obj.m_Data[row][col];
+		}
+	}
+	return Mat;
+}
+
+SXMatrix3 SXMatrix3::operator*( float fVal )
+{
+	SXMatrix3 Mat;
+	for(int row=0;row<3;row++)
+	{
+		for(int col=0;col<3;col++)
+		{
+			Mat.m_Data[row][col]=m_Data[row][col]*fVal;
+		}
+	}
+	return Mat;
+}
+
+SXMatrix3 SXMatrix3::operator*( const SXMatrix3& obj )
+{
+	SXMatrix3 Mat;
+	for(int row=0;row<3;row++)
+	{
+		for(int col=0;col<3;col++)
+		{
+			Mat.m_Data[row][col]=m_Data[row][0]*obj.m_Data[0][col]+m_Data[row][1]*obj.m_Data[1][col]+m_Data[row][2]*obj.m_Data[2][col];
+		}
+	}
+	return Mat;
+}
+
+SXMatrix3::SXMatrix3()
+{
+	Identity();
+}
+
+SXMatrix3& SXMatrix3::operator+=( const SXMatrix3& obj )
+{
+	for(int row=0;row<3;row++)
+	{
+		for(int col=0;col<3;col++)
+		{
+			m_Data[row][col]+=obj.m_Data[row][col];
+		}
+	}
+	return *this;
+}
+
+SXMatrix3& SXMatrix3::operator-=( const SXMatrix3& obj )
+{
+	for(int row=0;row<3;row++)
+	{
+		for(int col=0;col<3;col++)
+		{
+			m_Data[row][col]-=obj.m_Data[row][col];
+		}
+	}
+	return *this;
+}
+
+SXMatrix3& SXMatrix3::operator*=( float fVal )
+{
+	for(int row=0;row<3;row++)
+	{
+		for(int col=0;col<3;col++)
+		{
+			m_Data[row][col]*=fVal;
+		}
+	}
+	return *this;
+}
+
+SXMatrix3& SXMatrix3::operator*=( const SXMatrix3& obj )
+{
+	SXMatrix3 Mat;
+	for(int row=0;row<3;row++)
+	{
+		for(int col=0;col<3;col++)
+		{
+			Mat.m_Data[row][col]=m_Data[row][0]*obj.m_Data[0][col]+m_Data[row][1]*obj.m_Data[1][col]+m_Data[row][2]*obj.m_Data[2][col];
+		}
+	}
+	memcpy(this,&Mat,sizeof(float)*9);
+	return *this;
+}
+
+SXMatrix3& SXMatrix3::Identity()
+{
+	for(int row=0;row<3;row++)
+	{
+		for(int col=0;col<3;col++)
+		{
+			if(row==col)
+			{
+				m_Data[row][col]=1;
+			}
+			else
+			{
+				m_Data[row][col]=0;
+			}			
+		}
+	}
+	return *this;
+}
+
+SXMatrix3 operator *(float fVal,const SXMatrix3& obj)
+{
+	SXMatrix3 Mat;
+	for(int row=0;row<3;row++)
+	{
+		for(int col=0;col<3;col++)
+		{
+			Mat.m_Data[row][col]=obj.m_Data[row][col]*fVal;
+		}
+	}
+	return Mat;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+SXMatrix4 SXMatrix4::operator+( const SXMatrix4& obj )
+{
+	SXMatrix4 Mat;
+	for(int row=0;row<4;row++)
+	{
+		for(int col=0;col<4;col++)
+		{
+			Mat.m_Data[row][col]=m_Data[row][col]+obj.m_Data[row][col];
+		}
+	}
+	return Mat;
+}
+
+SXMatrix4 SXMatrix4::operator-( const SXMatrix4& obj )
+{
+	SXMatrix4 Mat;
+	for(int row=0;row<4;row++)
+	{
+		for(int col=0;col<4;col++)
+		{
+			Mat.m_Data[row][col]=m_Data[row][col]-obj.m_Data[row][col];
+		}
+	}
+	return Mat;
+}
+
+SXMatrix4 SXMatrix4::operator*( float fVal )
+{
+	SXMatrix4 Mat;
+	for(int row=0;row<4;row++)
+	{
+		for(int col=0;col<4;col++)
+		{
+			Mat.m_Data[row][col]=m_Data[row][col]*fVal;
+		}
+	}
+	return Mat;
+}
+
+SXMatrix4 SXMatrix4::operator*( const SXMatrix4& obj )
+{
+	SXMatrix4 Mat;
+	for(int row=0;row<4;row++)
+	{
+		for(int col=0;col<4;col++)
+		{
+			Mat.m_Data[row][col]=m_Data[row][0]*obj.m_Data[0][col]+m_Data[row][1]*obj.m_Data[1][col]+m_Data[row][2]*obj.m_Data[2][col]+m_Data[row][3]*obj.m_Data[3][col];
+		}
+	}
+	return Mat;
+}
+
+SXMatrix4::SXMatrix4()
+{
+	Identity();
+}
+
+SXMatrix4& SXMatrix4::operator+=( const SXMatrix4& obj )
+{
+	for(int row=0;row<4;row++)
+	{
+		for(int col=0;col<4;col++)
+		{
+			m_Data[row][col]+=obj.m_Data[row][col];
+		}
+	}
+	return *this;
+}
+
+SXMatrix4& SXMatrix4::operator-=( const SXMatrix4& obj )
+{
+	for(int row=0;row<4;row++)
+	{
+		for(int col=0;col<4;col++)
+		{
+			m_Data[row][col]-=obj.m_Data[row][col];
+		}
+	}
+	return *this;
+}
+
+SXMatrix4& SXMatrix4::operator*=( float fVal )
+{
+	for(int row=0;row<4;row++)
+	{
+		for(int col=0;col<4;col++)
+		{
+			m_Data[row][col]*=fVal;
+		}
+	}
+	return *this;
+}
+
+SXMatrix4& SXMatrix4::operator*=( const SXMatrix4& obj )
+{
+	SXMatrix4 Mat;
+	for(int row=0;row<4;row++)
+	{
+		for(int col=0;col<4;col++)
+		{
+			Mat.m_Data[row][col]=m_Data[row][0]*obj.m_Data[0][col]+m_Data[row][1]*obj.m_Data[1][col]+m_Data[row][2]*obj.m_Data[2][col]+m_Data[row][3]*obj.m_Data[3][col];
+		}
+	}
+	memcpy(this,&Mat,sizeof(float)*16);
+	return *this;
+}
+
+SXMatrix4& SXMatrix4::Identity()
+{
+	for(int row=0;row<4;row++)
+	{
+		for(int col=0;col<4;col++)
+		{
+			if(row==col)
+			{
+				m_Data[row][col]=1;
+			}
+			else
+			{
+				m_Data[row][col]=0;
+			}			
+		}
+	}
+	return *this;
+}
+
+SXMatrix4 operator *(float fVal,const SXMatrix4& obj)
+{
+	SXMatrix4 Mat;
+	for(int row=0;row<4;row++)
+	{
+		for(int col=0;col<4;col++)
+		{
+			Mat.m_Data[row][col]=obj.m_Data[row][col]*fVal;
+		}
+	}
+	return Mat;
+}

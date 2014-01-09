@@ -6,8 +6,6 @@
 #include <cassert>
 using namespace std;
 #define PRECISION 0.000001
-bool SXMathFloatIsEqual(float fx,float fy);
-
 class SXBasePoint
 {
 public:
@@ -103,4 +101,67 @@ public:
 	}
 	float &x,&y,&z,&w;
 };
+
+class SXMatrix3
+{
+public:
+	union
+	{
+		float m_Data[3][3];
+		struct
+		{
+			float _11,_12,_13;
+			float _21,_22,_23;
+			float _31,_32,_33;
+		};
+	};
+	SXMatrix3();
+	SXMatrix3 operator + (const SXMatrix3& obj);
+	SXMatrix3 operator - (const SXMatrix3& obj);
+	SXMatrix3 operator * (float fVal);
+	SXMatrix3 operator * (const SXMatrix3& obj);
+	SXMatrix3& operator += (const SXMatrix3& obj);
+	SXMatrix3& operator -= (const SXMatrix3& obj);
+	SXMatrix3& operator *= (float fVal);
+	SXMatrix3& operator *= (const SXMatrix3& obj);
+	friend SXMatrix3 operator *(float fVal,const SXMatrix3& obj);
+	SXMatrix3& Identity();
+};
+
+class SXMatrix4
+{
+public:
+	union
+	{
+		float m_Data[4][4];
+		struct
+		{
+			float _11,_12,_13,_14;
+			float _21,_22,_23,_24;
+			float _31,_32,_33,_34;
+			float _41,_42,_43,_44;
+		};
+	};
+	SXMatrix4();
+	SXMatrix4 operator + (const SXMatrix4& obj);
+	SXMatrix4 operator - (const SXMatrix4& obj);
+	SXMatrix4 operator * (float fVal);
+	SXMatrix4 operator * (const SXMatrix4& obj);
+	SXMatrix4& operator += (const SXMatrix4& obj);
+	SXMatrix4& operator -= (const SXMatrix4& obj);
+	SXMatrix4& operator *= (float fVal);
+	SXMatrix4& operator *= (const SXMatrix4& obj);
+	friend SXMatrix4 operator *(float fVal,const SXMatrix4& obj);
+	SXMatrix4& Identity();
+};
+///////////////////////////////////////////////////////////////////////////////////
+bool SXMathFloatIsEqual(float fx,float fy);
+SXMatrix3* SXMatrix3Transpose(SXMatrix3 *pOut,SXMatrix3* pIn);
+SXMatrix3* SXMatrix3Inverse(SXMatrix3 *pOut,SXMatrix3* pIn);
+SXPoint2D* SXPos2TransformCoord(SXPoint2D* pOut,SXPoint2D* pIn,SXMatrix3 *pM);
+SXPoint2D* SXPos2TransformNormal(SXPoint2D* pOut,SXPoint2D* pIn,SXMatrix3 *pM);
+SXMatrix4* SXMatrix4Transpose(SXMatrix4 *pOut,SXMatrix4* pIn);
+SXMatrix4* SXMatrix4Inverse(SXMatrix4 *pOut,SXMatrix4* pIn);
+SXPoint3D* SXPos3TransformCoord(SXPoint3D* pOut,SXPoint3D* pIn,SXMatrix4 *pM);
+SXPoint3D* SXPos3TransformNormal(SXPoint3D* pOut,SXPoint3D* pIn,SXMatrix4 *pM);
 #endif
