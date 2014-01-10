@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>07946BDB-CF10-4C31-BE88-7C76F28D2A96</string>
+	<key>IDESourceControlProjectName</key>
+	<string>My3D</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F6B87FF6-CE59-4D3F-994E-6B8B79FB5565</key>
+		<string>https://github.com/sx1989827/My3D.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>My3D/My3D.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F6B87FF6-CE59-4D3F-994E-6B8B79FB5565</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/sx1989827/My3D.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F6B87FF6-CE59-4D3F-994E-6B8B79FB5565</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F6B87FF6-CE59-4D3F-994E-6B8B79FB5565</string>
+			<key>IDESourceControlWCCName</key>
+			<string>My3D</string>
+		</dict>
+	</array>
+</dict>
+</plist>
