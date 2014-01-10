@@ -4,6 +4,7 @@
 #include <cmath>
 #include <vector>
 #include <cassert>
+#include <tchar.h>
 using namespace std;
 #define PRECISION 0.000001
 class SXBasePoint
