@@ -34,6 +34,7 @@ public:
 	SXBasePoint& Normalize();
 	float Dot(const SXBasePoint& PointObj);
 	SXBasePoint Cross(const SXBasePoint& PointObj);
+	friend ostream& operator <<(ostream& o,const SXBasePoint& obj);
 	vector<float> m_PointList;
 };
 
@@ -54,6 +55,7 @@ public:
 		y=PointObj.m_PointList[1];
 		return *this;
 	}
+	friend istream& operator >>(istream& in,const SXPoint2D& obj);
 	float &x,&y;
 };
 
@@ -76,6 +78,7 @@ public:
 		z=PointObj.m_PointList[2];
 		return *this;
 	}
+	friend istream& operator >>(istream& in,const SXPoint3D& obj);
 	float &x,&y,&z;
 };
 
@@ -100,6 +103,7 @@ public:
 		w=PointObj.m_PointList[3];
 		return *this;
 	}
+	friend istream& operator >>(istream& in,const SXPoint4D& obj);
 	float &x,&y,&z,&w;
 };
 
@@ -126,6 +130,8 @@ public:
 	SXMatrix3& operator *= (float fVal);
 	SXMatrix3& operator *= (const SXMatrix3& obj);
 	friend SXMatrix3 operator *(float fVal,const SXMatrix3& obj);
+	friend ostream& operator <<(ostream& o,const SXMatrix3& obj);
+	friend istream& operator >>(istream& in,const SXMatrix3& obj);
 	SXMatrix3& Identity();
 };
 
@@ -153,6 +159,8 @@ public:
 	SXMatrix4& operator *= (float fVal);
 	SXMatrix4& operator *= (const SXMatrix4& obj);
 	friend SXMatrix4 operator *(float fVal,const SXMatrix4& obj);
+	friend ostream& operator <<(ostream& o,const SXMatrix4& obj);
+	friend istream& operator >>(istream& in,const SXMatrix4& obj);
 	SXMatrix4& Identity();
 };
 ///////////////////////////////////////////////////////////////////////////////////

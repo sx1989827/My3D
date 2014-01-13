@@ -8,13 +8,10 @@ int _tmain(int argc, _TCHAR* argv[])
 int main(int argc, const char * argv[])
 #endif
 {
-	SXPoint2D p,p1;
-	p.x=2.3;
-	p.y=3.1;
-	p1.x=1.1;
-	p1.y=2.6;
-	SXPoint2D p2=p+p1;
-	cout<<p2.x<<"  "<<p2.y<<" "<<(p1==p2)<<endl;
+	SXMatrix4 mat1,mat2;
+	cin>>mat1;
+	SXMatrix4Inverse(&mat2,&mat1);
+	cout<<mat2<<endl;
 	return 0;
 }
 
