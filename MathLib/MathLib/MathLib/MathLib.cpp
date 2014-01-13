@@ -688,8 +688,9 @@ SXMatrix4* SXMatrix4Inverse( SXMatrix4 *pOut,SXMatrix4* pIn )
 	float c1 = pIn->_31 * pIn->_43 - pIn->_41 * pIn->_33;
 	float c0 = pIn->_31 * pIn->_42 - pIn->_41 * pIn->_32;
 
-	// Should check for 0 determinant
-	float invdet = 1.0 / (s0 * c5 - s1 * c4 + s2 * c3 + s3 * c2 - s4 * c1 + s5 * c0);
+	float det=s0 * c5 - s1 * c4 + s2 * c3 + s3 * c2 - s4 * c1 + s5 * c0;
+	assert(fabs(det)>0.000001);
+	float invdet = 1.0 /det;
 
 	pOut->_11 = ( pIn->_22 * c5 - pIn->_23 * c4 + pIn->_24 * c3) * invdet;
 	pOut->_12 = (-pIn->_12 * c5 + pIn->_13 * c4 - pIn->_14 * c3) * invdet;
