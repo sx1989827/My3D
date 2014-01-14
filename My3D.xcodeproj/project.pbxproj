@@ -35,9 +35,6 @@
 		B5F282B5187FC63000E4F208 /* MathLib.vcxproj */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MathLib.vcxproj; sourceTree = "<group>"; };
 		B5F282B6187FC63000E4F208 /* MathLib.vcxproj.filters */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MathLib.vcxproj.filters; sourceTree = "<group>"; };
 		B5F282B7187FC63000E4F208 /* ReadMe.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReadMe.txt; sourceTree = "<group>"; };
-		B5F282B8187FC63000E4F208 /* stdafx.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = stdafx.cpp; sourceTree = "<group>"; };
-		B5F282B9187FC63000E4F208 /* stdafx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
-		B5F282BA187FC63000E4F208 /* targetver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = targetver.h; sourceTree = "<group>"; };
 		B5F282BB187FC63000E4F208 /* MathLib.sln */ = {isa = PBXFileReference; lastKnownFileType = text; path = MathLib.sln; sourceTree = "<group>"; };
 		B5F282BC187FC63000E4F208 /* My3D.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = My3D.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,9 +102,6 @@
 				B5F282B5187FC63000E4F208 /* MathLib.vcxproj */,
 				B5F282B6187FC63000E4F208 /* MathLib.vcxproj.filters */,
 				B5F282B7187FC63000E4F208 /* ReadMe.txt */,
-				B5F282B8187FC63000E4F208 /* stdafx.cpp */,
-				B5F282B9187FC63000E4F208 /* stdafx.h */,
-				B5F282BA187FC63000E4F208 /* targetver.h */,
 			);
 			path = MathLib;
 			sourceTree = "<group>";

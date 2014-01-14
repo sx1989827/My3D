@@ -240,29 +240,35 @@ ostream& operator <<(ostream& o,const SXBasePoint& obj)
 	return o;
 }
 
-istream& operator >>(istream& in,const SXPoint2D& obj)
+istream& operator >>(istream& in, SXPoint2D& obj)
 {
 	for(int i=0;i<2;i++)
 	{
-		in>>(float)obj.m_PointList[i];
+        float data;
+		in>>data;
+        obj.m_PointList[i]=data;
 	}
 	return in;
 }
 
-istream& operator >>(istream& in,const SXPoint3D& obj)
+istream& operator >>(istream& in,SXPoint3D& obj)
 {
 	for(int i=0;i<3;i++)
 	{
-		in>>(float)obj.m_PointList[i];
+        float data;
+		in>>data;
+        obj.m_PointList[i]=data;
 	}
 	return in;
 }
 
-istream& operator >>(istream& in,const SXPoint4D& obj)
+istream& operator >>(istream& in, SXPoint4D& obj)
 {
 	for(int i=0;i<4;i++)
 	{
-		in>>(float)obj.m_PointList[i];
+        float data;
+		in>>data;
+        obj.m_PointList[i]=data;
 	}
 	return in;
 }
@@ -429,13 +435,15 @@ ostream& operator <<(ostream& o,const SXMatrix3& obj)
 	return o;
 }
 
-istream& operator >>(istream& in,const SXMatrix3& obj)
+istream& operator >>(istream& in, SXMatrix3& obj)
 {
 	for(int row=0;row<3;row++)
 	{
 		for(int col=0;col<3;col++)
 		{
-			in>>(float)obj.m_Data[row][col];
+            float data;
+			in>>data;
+            obj.m_Data[row][col]=data;
 		}
 	}
 	return in;
@@ -597,13 +605,15 @@ ostream& operator <<(ostream& o,const SXMatrix4& obj)
 	return o;
 }
 
-istream& operator >>(istream& in,const SXMatrix4& obj)
+istream& operator >>(istream& in, SXMatrix4& obj)
 {
 	for(int row=0;row<4;row++)
 	{
 		for(int col=0;col<4;col++)
 		{
-			in>>(float)obj.m_Data[row][col];
+            float data;
+			in>>data;
+            obj.m_Data[row][col]=data;
 		}
 	}
 	return in;
