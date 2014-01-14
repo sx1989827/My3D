@@ -8,10 +8,11 @@ int _tmain(int argc, _TCHAR* argv[])
 int main(int argc, const char * argv[])
 #endif
 {
-	SXMatrix4 mat1,mat2;
-	cin>>mat1;
-	SXMatrix4Inverse(&mat2,&mat1);
-	cout<<mat2<<endl;
+	SXPoint3D p(1,2,3);
+    SXMatrix4 m;
+    cin>>m;
+    SXPos3TransformCoord(&p, &p, &m);
+    cout<<p<<endl;
 	return 0;
 }
 

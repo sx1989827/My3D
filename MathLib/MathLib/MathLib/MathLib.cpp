@@ -627,6 +627,8 @@ float _determinant(SXMatrix3* pIn)
 
 SXMatrix3* SXMatrix3Transpose( SXMatrix3 *pOut,SXMatrix3* pIn )
 {
+    SXMatrix3 InputMat=*pIn;
+    pIn=&InputMat;
 	for(int row=0;row<3;row++)
 	{
 		for(int col=0;col<3;col++)
@@ -639,6 +641,8 @@ SXMatrix3* SXMatrix3Transpose( SXMatrix3 *pOut,SXMatrix3* pIn )
 
  SXMatrix3* SXMatrix3Inverse( SXMatrix3 *pOut,SXMatrix3* pIn )
  {
+     SXMatrix3 InputMat=*pIn;
+     pIn=&InputMat;
 	float det=_determinant(pIn);
 	assert(fabs(det)>0.000001);
 	float OverDet=1/det;
@@ -672,6 +676,8 @@ SXPoint2D* SXPos2TransformNormal( SXPoint2D* pOut,SXPoint2D* pIn,SXMatrix3 *pM )
 
  SXMatrix4* SXMatrix4Transpose( SXMatrix4 *pOut,SXMatrix4* pIn )
  {
+     SXMatrix4 InputMat=*pIn;
+     pIn=&InputMat;
 	 for(int row=0;row<4;row++)
 	 {
 		 for(int col=0;col<4;col++)
@@ -684,6 +690,8 @@ SXPoint2D* SXPos2TransformNormal( SXPoint2D* pOut,SXPoint2D* pIn,SXMatrix3 *pM )
  
 SXMatrix4* SXMatrix4Inverse( SXMatrix4 *pOut,SXMatrix4* pIn )
 {
+    SXMatrix4 InputMat=*pIn;
+    pIn=&InputMat;
 	float s0 = pIn->_11 * pIn->_22 - pIn->_21 * pIn->_12;
 	float s1 = pIn->_11 * pIn->_23 - pIn->_21 * pIn->_13;
 	float s2 = pIn->_11 * pIn->_24 - pIn->_21 * pIn->_14;
