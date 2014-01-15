@@ -749,3 +749,118 @@ SXPoint3D* SXPos3TransformNormal( SXPoint3D* pOut,SXPoint3D* pIn,SXMatrix4 *pM )
 	pOut->z=p.x*pM->_13+p.y*pM->_23+p.z*pM->_33+p.w*pM->_43;
 	return pOut;
 }
+
+SXMatrix4* SXMatrix4Translation(SXMatrix4* pInOut,float x,float y,float z)
+{
+    assert(pInOut!=0);
+    memset(pInOut, 0, sizeof(SXMatrix4));
+    pInOut->_11=1;
+    pInOut->_22=1;
+    pInOut->_33=1;
+    pInOut->_41=x;
+    pInOut->_42=y;
+    pInOut->_43=z;
+    pInOut->_44=1;
+    return pInOut;
+}
+
+SXMatrix4* SXMatrix4TranslationInverse(SXMatrix4* pOut,SXMatrix4* pIn)
+{
+    assert(pOut!=0 && pIn!=0);
+    if(pOut!=pIn)
+    {
+        *pOut=*pIn;
+    }
+    pOut->_41=-pOut->_41;
+    pOut->_42=-pOut->_42;
+    pOut->_43=-pOut->_43;
+    return pOut;
+}
+
+SXMatrix4* SXMatrix4RotationX(SXMatrix4* pInOut,float fAngle)
+{
+    assert(pInOut!=0);
+    memset(pInOut, 0, sizeof(SXMatrix4));
+    pInOut->_11=1;
+    pInOut->_22=cosf(fAngle);
+    pInOut->_23=sinf(fAngle);
+    pInOut->_32=-sinf(fAngle);
+    pInOut->_33=cosf(fAngle);
+    pInOut->_44=1;
+    return pInOut;
+}
+
+SXMatrix4* SXMatrix4RotationY(SXMatrix4* pInOut,float fAngle)
+{
+    assert(pInOut!=0);
+    memset(pInOut, 0, sizeof(SXMatrix4));
+    pInOut->_11=cosf(fAngle);
+    pInOut->_13=-sinf(fAngle);
+    pInOut->_22=1;
+    pInOut->_31=sinf(fAngle);
+    pInOut->_33=cosf(fAngle);
+    pInOut->_44=1;
+    return pInOut;
+}
+
+SXMatrix4* SXMatrix4RotationZ(SXMatrix4* pInOut,float fAngle)
+{
+    assert(pInOut!=0);
+    memset(pInOut, 0, sizeof(SXMatrix4));
+    pInOut->_11=cosf(fAngle);
+    pInOut->_12=sinf(fAngle);
+    pInOut->_21=-sinf(fAngle);
+    pInOut->_22=cosf(fAngle);
+    pInOut->_33=1;
+    pInOut->_44=1;
+    return pInOut;
+}
+
+SXMatrix4* SXMatrix4RotationInverse(SXMatrix4* pOut,SXMatrix4* pIn)
+{
+    assert(pOut!=0 && pIn!=0);
+    if(pOut!=pIn)
+    {
+        *pOut=*pIn;
+    }
+    return pOut;
+}
+
+SXMatrix4* SXMatrix4Scaling(SXMatrix4* pInOut,float sx,float sy,float sz)
+{
+    assert(pInOut!=0);
+    memset(pInOut, 0, sizeof(SXMatrix4));
+    pInOut->_11=sx;
+    pInOut->_22=sy;
+    pInOut->_33=sz;
+    pInOut->_44=1;
+    return pInOut;
+}
+
+SXMatrix4* SXMatrix4ScalingInverse(SXMatrix4* pOut,SXMatrix4* pIn)
+{
+    assert(pOut!=0 && pIn!=0);
+    if(pOut!=pIn)
+    {
+        *pOut=*pIn;
+    }
+    pOut->_11=1.0/pOut->_11;
+    pOut->_22=1.0/pOut->_22;
+    pOut->_33=1.0/pOut->_33;
+    return pOut;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

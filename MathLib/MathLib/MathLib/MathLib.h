@@ -175,4 +175,25 @@ SXMatrix4* SXMatrix4Transpose(SXMatrix4 *pOut,SXMatrix4* pIn);
 SXMatrix4* SXMatrix4Inverse(SXMatrix4 *pOut,SXMatrix4* pIn);
 SXPoint3D* SXPos3TransformCoord(SXPoint3D* pOut,SXPoint3D* pIn,SXMatrix4 *pM);
 SXPoint3D* SXPos3TransformNormal(SXPoint3D* pOut,SXPoint3D* pIn,SXMatrix4 *pM);
+SXMatrix4* SXMatrix4Translation(SXMatrix4* pInOut,float x,float y,float z);
+SXMatrix4* SXMatrix4TranslationInverse(SXMatrix4* pOut,SXMatrix4* pIn);
+SXMatrix4* SXMatrix4RotationX(SXMatrix4* pInOut,float fAngle);
+SXMatrix4* SXMatrix4RotationY(SXMatrix4* pInOut,float fAngle);
+SXMatrix4* SXMatrix4RotationZ(SXMatrix4* pInOut,float fAngle);
+SXMatrix4* SXMatrix4RotationInverse(SXMatrix4* pOut,SXMatrix4* pIn);
+SXMatrix4* SXMatrix4Scaling(SXMatrix4* pInOut,float sx,float sy,float sz);
+SXMatrix4* SXMatrix4ScalingInverse(SXMatrix4* pOut,SXMatrix4* pIn);
 #endif
+
+
+
+
+
+
+
+
+
+
+
+
+
