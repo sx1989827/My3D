@@ -183,6 +183,7 @@ SXMatrix4* SXMatrix4RotationZ(SXMatrix4* pInOut,float fAngle);
 SXMatrix4* SXMatrix4RotationInverse(SXMatrix4* pOut,SXMatrix4* pIn);
 SXMatrix4* SXMatrix4Scaling(SXMatrix4* pInOut,float sx,float sy,float sz);
 SXMatrix4* SXMatrix4ScalingInverse(SXMatrix4* pOut,SXMatrix4* pIn);
+SXMatrix4* SXMatrix4LookAtLH(SXMatrix4 *pInOut, SXPoint3D* pEye, SXPoint3D* pAt, SXPoint3D* pUp);
 #endif
 
 

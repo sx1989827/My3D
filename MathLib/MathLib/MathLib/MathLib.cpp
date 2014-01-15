@@ -850,6 +850,18 @@ SXMatrix4* SXMatrix4ScalingInverse(SXMatrix4* pOut,SXMatrix4* pIn)
     return pOut;
 }
 
+SXMatrix4* SXMatrix4LookAtLH( SXMatrix4 *pInOut, SXPoint3D* pEye, SXPoint3D* pAt, SXPoint3D* pUp )
+{
+	SXPoint3D xAxis,yAxis,zAxis;
+	zAxis = *pAt-*pEye;
+	zAxis.Normalize();
+	xAxis = pUp->Cross(zAxis);
+	xAxis.Normalize();
+	yAxis = zAxis.Cross(xAxis);
+	yAxis.Normalize();
+	return 0;
+}
+
 
 
 
