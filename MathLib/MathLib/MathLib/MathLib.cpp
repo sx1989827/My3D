@@ -862,17 +862,35 @@ SXMatrix4* SXMatrix4LookAtLH( SXMatrix4 *pInOut, SXPoint3D* pEye, SXPoint3D* pAt
 	return 0;
 }
 
+SXPlane::SXPlane( float a,float b,float c,float d )
+{
+	m_a=a,m_b=b,m_c=c,m_d=d;
+}
 
+SXPlane::SXPlane( SXPoint3D* pPoint,SXPoint3D* pNormal )
+{
+	SXPoint3D Normal=*pNormal;
+	Normal.Normalize();
+	m_a=Normal.x;
+	m_b=Normal.y;
+	m_c=Normal.z;
+	m_d=-Normal.Dot(*pPoint);
+}
 
+SXPlane::SXPlane( SXPoint3D* pV1,SXPoint3D* pV2,SXPoint3D* pV3 )
+{
+	SXPoint3D u=*pV2-*pV1;
+	SXPoint3D v=*pV3-*pV1;
+	SXPoint3D Normal=u.Cross(v);
+	Normal.Normalize();
+	m_a=Normal.x;
+	m_b=Normal.y;
+	m_c=Normal.z;
+	m_d=-Normal.Dot(*pV1);
+}
 
-
-
-
-
-
-
-
-
-
-
-
+float SXPlane::PlaneDotCoord( SXPoint3D* pV )
+{
+	SXPoint3D *pNormal=(SXPoint3D*)this;
+	return pNormal->Dot(*pV)+m_d;
+}

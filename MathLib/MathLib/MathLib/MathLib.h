@@ -165,6 +165,17 @@ public:
 	friend istream& operator >>(istream& in, SXMatrix4& obj);
 	SXMatrix4& Identity();
 };
+
+class SXPlane
+{
+public:
+	SXPlane(float a,float b,float c,float d);
+	SXPlane(SXPoint3D* pPoint,SXPoint3D* pNormal);
+	SXPlane(SXPoint3D* pV1,SXPoint3D* pV2,SXPoint3D* pV3);
+	float PlaneDotCoord(SXPoint3D* pV);
+	float m_a,m_b,m_c,m_d;
+};
+
 ///////////////////////////////////////////////////////////////////////////////////
 bool SXMathFloatIsEqual(float fx,float fy);
 SXMatrix3* SXMatrix3Transpose(SXMatrix3 *pOut,SXMatrix3* pIn);
